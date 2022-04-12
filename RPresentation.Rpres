@@ -1,0 +1,99 @@
+Compound Interest Calculator Presentation
+========================================================
+author: DanFV1
+date: 4/12/2022
+autosize: true
+
+Compound Interest Calculator
+========================================================
+
+Determine how much your money can grow using the power of compound interest. 
+
+
+Initial Information Required
+========================================================
+
+- **Initial Investment**  
+Amount of money that you have available to invest initially.
+
+- **Interest Rate %**  
+Your estimated annual interest rate.
+
+- **Number of Years**  
+Length of time, in years, that you plan to save.
+
+- **Monthly Deposit Amount**  
+Amount that you plan to add to the principal every month, or a negative number
+for the amount that you plan to withdraw every month.
+
+Initial Information Fields
+========================================================
+<style>
+pre {
+  white-space: pre !important;
+  overflow-y: scroll !important;
+  height: 20vh !important;
+}
+</style>
+
+```{r inputs, echo = TRUE, max.height='100px'}
+library(shiny)
+library(highcharter)
+library(tidyverse)
+library(DT)
+
+# Define UI for application that draws a histogram
+shinyUI(fluidPage(
+
+    # Application title
+    titlePanel(HTML(paste0(strong("Compound Interest Calculator")))),
+
+    # Sidebar with a slider input for number of bins
+    sidebarLayout(
+        sidebarPanel(
+            numericInput("initial",
+                         "Initial Investment:",
+                         min = 0,
+                         step = 100,
+                        value = 5000),
+            numericInput("interest_rate",
+                         "Interest Rate %:",
+                         min = 0,
+                         step = 0.1,
+                         value = 5),
+            sliderInput("years",
+                        "Select the Number of Years:",
+                        min = 0,
+                        max = 100,
+                        value = 20),
+            numericInput("monthly_deposit",
+                         "Monthly Deposit Amount:",
+                         step = 100,
+                         value = 100),
+            actionButton("calculate_button",
+                         "Calculate",
+                         icon("calculator")
+                        ),
+            helpText(HTML(paste0(strong("All fields are required."))))
+            
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+            highchartOutput("plot"),
+            
+            #textOutput("initial_amount_text")
+           
+            DT::dataTableOutput("compound_data_table")
+        )
+    )
+)
+)
+```
+
+Thank you for your time!
+========================================================
+
+App Link: <https://danfv1.shinyapps.io/CompoundInteresetCalculator/>
+
+Github Repository: <https://github.com/DanFV1/ShinyAssignment.git>

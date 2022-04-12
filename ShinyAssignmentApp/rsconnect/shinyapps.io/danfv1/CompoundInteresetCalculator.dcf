@@ -1,0 +1,13 @@
+name: CompoundInteresetCalculator
+title: CompoundInteresetCalculator
+username:
+account: danfv1
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6075486
+bundleId: 5791408
+url: https://danfv1.shinyapps.io/CompoundInteresetCalculator/
+when: 1649788662.07278
+lastSyncTime: 1649788662.07278
+asMultiple: FALSE
+asStatic: FALSE
